@@ -1,3 +1,7 @@
 {
-
+  "49.1_LPR": {
+    "rtspAddress": 8557,
+    "rtpAddress": 8006,
+    "rtcpAddress": 8007
+  }
 }

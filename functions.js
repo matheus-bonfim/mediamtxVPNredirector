@@ -75,14 +75,14 @@ export function createYml(name, ip, ports, tipo){
     }
     else{
         //psw = encodeURIComponent("Wnidobrasil#22")
-        psw = encodeURIComponent("Wnidobrasil!20");
-        url_source = `rtsp://bosch:${psw}@${ip}:25552`;
-        //url_source = `source: rtsp://admin:${psw}@${ip}:554/media/video3`;
+        psw = encodeURIComponent("Wnidobrasil#22");
+        //url_source = `rtsp://bosch:${psw}@${ip}:25552`;
+        url_source = `rtsp://admin:${psw}@${ip}:554/Streaming/Channels/102`;
     }
     let url_source_dest = `rtsp://admin:${psw}@${IP_PUBLICO_SERVER}:${ports.rtspAddress}/${name}`
     let runOnReady = `ffmpeg -i ${url_source} -f rtsp ${url_source_dest}`;
 
-    const content = `\nrtspAddress: :${ports.rtspAddress}\nrtpAddress: :${ports.rtpAddress}\nrtcpAddress: :${ports.rtcpAddress}\npaths:\n  ${name}:\n    source: ${url_source}\n    sourceOnDemand: yes`;  
+    const content = `\nrtspAddress: :${ports.rtspAddress}\nrtpAddress: :${ports.rtpAddress}\nrtcpAddress: :${ports.rtcpAddress}\npaths:\n  ${name}:\n    source: ${url_source}\n    sourceProtocol: tcp\n    sourceOnDemand: yes`;  
     
     //console.log(url_source_dest);
 

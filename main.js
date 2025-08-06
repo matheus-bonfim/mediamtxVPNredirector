@@ -34,6 +34,35 @@ export async function getAllContainers(agingTime){
     console.log(error);
   }
 }
+
+export async function deleteOlderContainer(){ 
+  try{
+    let containers = await docker.listContainers({ all: true });
+    console.log("Containers: ", containers);
+    let prev_container_info = {name: '', timestamp: 0};
+    for (let container of containers){
+      let conObj = docker.getContainer(container.Id);
+      let data = await conObj.inspect();
+      let conName = data.Name.replace('/', '');
+      if (container.State !== 'running'){
+        await removeStream(conName);
+      }
+      else{
+        let timestamp = new Date(data.Created).getTime();
+        console.log(prev_container_info)
+        if (timestamp > prev_container_info.timestamp){
+          prev_container_info.name = conName;
+          prev_container_info.timestamp = timestamp;
+        }
+      }
+    }
+    await removeStream(prev_container_info.name);
+    return true;
+  }
+  catch (error) {
+    console.log(error);
+  }
+}
 // Função para verificar se o container já está rodando
 async function checkContainerRunning(containerName) {
   try {
@@ -101,9 +130,17 @@ async function createAndStartContainer(containerName, ip, tipo) {
       }
     }
     else{
-      console.log("Sem portas disponíveis")
-    }
-}
+      console.log("Sem portas disponíveis");
+      console.log("Removendo container antigo");
+      const deleted = await deleteOlderContainer();
+      if(deleted){
+        return await createAndStartContainer(containerName, ip, tipo);
+      }
+      else{
+        console.log("Erro ao deletar container antigo");
+        return undefined;
+      }
+}};
 
 // Função principal que gerencia a criação do container quando solicitado
 export async function handleRequest(containerName, ip, tipo) { //retorna as portas ou undefined em caso de erro
@@ -152,30 +189,6 @@ export async function listActiveContainers(){
   const containers = await docker.listContainers({ all: false }); // so containers ativos
   const conNames = containers.map(con => con.Names[0].replace(/^\//, ''));
   return conNames;
-}
-//handleRequest('cam1', '172.16.0.181:554')
+};
 
-//removeStream('43.3_CXT')
-//removeStream('ch2')
-
-
-//createAndStartContainer('7.3_LPR', '192.168.2.23', 'LPR');
-
-
-
-//'192.168.24.29:554'
-// Teste: ao chamar essa função, um container será criado se a câmera não estiver sendo transmitida
-//handleRequest('cam3', '192.168.24.29:554');    portao do parque 
-//handleRequest('cam2', '192.168.24.37:554');
-//handleRequest('cam4', '172.16.0.180:554')
-
-//handleRequest('cam4', '172.16.0.180:554')
-
-//handleRequest('cam1', '172.16.0.181:554');
-
-
-
-///preciso fazer um gerenciador de containers ativosossssosossososososososos
-
-
-//rtsp://admin:Wnidobrasil%2322@192.168.10.226:8554/cam/realmonitor?channel=1&subtype=1
+//getAllContainers(10);

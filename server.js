@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import { handleRequest } from './main.js';
+import { handleRequest, getAllContainers } from './main.js';
 import { IP, containerAgingTime, cleanerIntervalTime } from './config.js';
 
 const HTTP_PORT = 2222;

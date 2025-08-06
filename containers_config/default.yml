@@ -334,7 +334,7 @@ pathDefaults:
   source: publisher
   # If the source is a URL, and the source certificate is self-signed
 
-  sourceOnDemand: no
+  sourceOnDemand: yes
   # If sourceOnDemand is "yes", readers will be put on hold until the source is
   # ready or until this amount of time has passed.
   sourceOnDemandStartTimeout: 10s

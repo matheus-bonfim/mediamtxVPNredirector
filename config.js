@@ -2,7 +2,7 @@ import { fileURLToPath } from 'url';
 import path from 'path';
 
 
-export const containerAgingTime = 3600;
+export const containerAgingTime = 1000 * 1800;
 export const cleanerIntervalTime = 1000 * 60 * 20;
 export const IP_PUBLICO_SERVER = '189.4.2.61';
 
