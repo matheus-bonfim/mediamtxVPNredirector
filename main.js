@@ -38,7 +38,6 @@ export async function getAllContainers(agingTime){
 export async function deleteOlderContainer(){ 
   try{
     let containers = await docker.listContainers({ all: true });
-    console.log("Containers: ", containers);
     let prev_container_info = {name: '', timestamp: 0};
     for (let container of containers){
       let conObj = docker.getContainer(container.Id);
@@ -49,7 +48,6 @@ export async function deleteOlderContainer(){
       }
       else{
         let timestamp = new Date(data.Created).getTime();
-        console.log(prev_container_info)
         if (timestamp > prev_container_info.timestamp){
           prev_container_info.name = conName;
           prev_container_info.timestamp = timestamp;
@@ -115,9 +113,6 @@ async function createAndStartContainer(containerName, ip, tipo) {
               ports_j[containerName] = ports;
               writeFileSync(ports_path, JSON.stringify(ports_j, null, 2)); 
               console.log(ports);
-
-              const url_rtsp = `rtsp://${IP}:${ports.rtspAddress}/${containerName};`
-
 
               return ports;
 

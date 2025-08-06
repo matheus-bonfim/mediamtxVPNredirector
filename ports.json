@@ -3,5 +3,55 @@
     "rtspAddress": 8557,
     "rtpAddress": 8006,
     "rtcpAddress": 8007
+  },
+  "21_PTZ": {
+    "rtspAddress": 8554,
+    "rtpAddress": 8000,
+    "rtcpAddress": 8001
+  },
+  "20.1_CXT": {
+    "rtspAddress": 8555,
+    "rtpAddress": 8002,
+    "rtcpAddress": 8003
+  },
+  "12_LPR": {
+    "rtspAddress": 8556,
+    "rtpAddress": 8004,
+    "rtcpAddress": 8005
+  },
+  "13.2_LPR": {
+    "rtspAddress": 8557,
+    "rtpAddress": 8006,
+    "rtcpAddress": 8007
+  },
+  "38.2_CXT": {
+    "rtspAddress": 8558,
+    "rtpAddress": 8008,
+    "rtcpAddress": 8009
+  },
+  "22.3_CXT": {
+    "rtspAddress": 8559,
+    "rtpAddress": 8010,
+    "rtcpAddress": 8011
+  },
+  "7.3_LPR": {
+    "rtspAddress": 8560,
+    "rtpAddress": 8012,
+    "rtcpAddress": 8013
+  },
+  "7.4_CXT": {
+    "rtspAddress": 8561,
+    "rtpAddress": 8014,
+    "rtcpAddress": 8015
+  },
+  "7.2A_CXT": {
+    "rtspAddress": 8562,
+    "rtpAddress": 8016,
+    "rtcpAddress": 8017
+  },
+  "6.2_LPR": {
+    "rtspAddress": 34955,
+    "rtpAddress": 8018,
+    "rtcpAddress": 8019
   }
 }
