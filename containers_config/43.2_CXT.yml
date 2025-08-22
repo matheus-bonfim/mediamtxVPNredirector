@@ -512,11 +512,11 @@ rtmp: no
 
 
 
-rtspAddress: :8557
-rtpAddress: :8006
-rtcpAddress: :8007
+rtspAddress: :8555
+rtpAddress: :8002
+rtcpAddress: :8003
 paths:
-  13.2_LPR:
-    source: rtsp://admin:Wnidobrasil%2322@192.168.50.21:554/cam/realmonitor?channel=1&subtype=1
+  43.2_CXT:
+    source: rtsp://admin:Wnidobrasil%2322@192.168.24.39:554/Streaming/Channels/102
     sourceProtocol: tcp
     sourceOnDemand: yes

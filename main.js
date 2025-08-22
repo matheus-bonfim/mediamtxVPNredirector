@@ -34,6 +34,18 @@ export async function getAllContainers(agingTime){
     console.log(error);
   }
 }
+export async function removeSomeStreams(con_lst){
+  try {
+    for (let conName of con_lst){
+      await removeStream(conName)
+    }
+    return true;
+  
+  } catch (error) {
+      console.log(error);
+      return false;
+  }
+}
 
 export async function deleteOlderContainer(){ 
   try{
@@ -178,6 +190,7 @@ export async function removeStream(cam){
     else{
         console.log("Container nao encontrado!")
     }
+    return;
 }
 
 export async function listActiveContainers(){
