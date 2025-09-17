@@ -512,9 +512,9 @@ rtmp: no
 
 
 
-rtspAddress: :8555
-rtpAddress: :8002
-rtcpAddress: :8003
+rtspAddress: :8557
+rtpAddress: :8004
+rtcpAddress: :8005
 paths:
   43.2_CXT:
     source: rtsp://admin:Wnidobrasil%2322@192.168.24.39:554/Streaming/Channels/102
