@@ -50,7 +50,7 @@ export async function removeSomeStreams(con_lst){
 export async function deleteOlderContainer(){ 
   try{
     let containers = await docker.listContainers({ all: true });
-    let prev_container_info = {name: '', timestamp: 0};
+    let prev_container_info = {name: '', timestamp: Date.now()};
     for (let container of containers){
       let conObj = docker.getContainer(container.Id);
       let data = await conObj.inspect();
@@ -60,13 +60,14 @@ export async function deleteOlderContainer(){
       }
       else{
         let timestamp = new Date(data.Created).getTime();
-        if (timestamp > prev_container_info.timestamp){
+        if (timestamp < prev_container_info.timestamp){
           prev_container_info.name = conName;
           prev_container_info.timestamp = timestamp;
         }
       }
     }
-    await removeStream(prev_container_info.name);
+    if(prev_container_info.name !== '') await removeStream(prev_container_info.name);
+    
     return true;
   }
   catch (error) {

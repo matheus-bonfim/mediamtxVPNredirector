@@ -5,32 +5,52 @@
     "rtcpAddress": 8003
   },
   "43.2_CXT": {
-    "rtspAddress": 8557,
-    "rtpAddress": 8004,
-    "rtcpAddress": 8005
-  },
-  "38.2_CXT": {
-    "rtspAddress": 8555,
-    "rtpAddress": 8000,
-    "rtcpAddress": 8001
-  },
-  "43.1_CXT": {
-    "rtspAddress": 8556,
-    "rtpAddress": 8002,
-    "rtcpAddress": 8003
+    "rtspAddress": 8560,
+    "rtpAddress": 8012,
+    "rtcpAddress": 8013
   },
   "03_CXT": {
-    "rtspAddress": 8554,
-    "rtpAddress": 8006,
-    "rtcpAddress": 8007
+    "rtspAddress": 8562,
+    "rtpAddress": 8016,
+    "rtcpAddress": 8017
   },
   "23.2_CXT": {
-    "rtspAddress": 8554,
-    "rtpAddress": 8000,
-    "rtcpAddress": 8001
+    "rtspAddress": 8561,
+    "rtpAddress": 8014,
+    "rtcpAddress": 8015
   },
   "05_CXT": {
     "rtspAddress": 8555,
+    "rtpAddress": 8002,
+    "rtcpAddress": 8003
+  },
+  "6.2_LPR": {
+    "rtspAddress": 8555,
+    "rtpAddress": 8004,
+    "rtcpAddress": 8005
+  },
+  "1GA_LPR": {
+    "rtspAddress": 8557,
+    "rtpAddress": 8006,
+    "rtcpAddress": 8007
+  },
+  "04_CXT": {
+    "rtspAddress": 8558,
+    "rtpAddress": 8008,
+    "rtcpAddress": 8009
+  },
+  "27_CXT": {
+    "rtspAddress": 44545,
+    "rtpAddress": 8018,
+    "rtcpAddress": 8019
+  },
+  "32.2B_CXT": {
+    "rtspAddress": 39717,
+    "rtpAddress": 8010,
+    "rtcpAddress": 8011
+  },
+  "38.2_CXT": {
+    "rtspAddress": 8564,
     "rtpAddress": 8002,
     "rtcpAddress": 8003
   }
