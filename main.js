@@ -101,12 +101,38 @@ async function checkContainerRunning(containerName) {
   }
 }
 
+async function ensureImage(image) {
+  const images = await docker.listImages();
+  const exists = images.some(img =>
+    img.RepoTags && img.RepoTags.includes(image)
+  );
+
+  if (exists) {
+    console.log(`Imagem ${image} já existe`);
+    return;
+  }
+
+  console.log(`Fazendo pull da imagem ${image}...`);
+  return new Promise((resolve, reject) => {
+    docker.pull(image, (err, stream) => {
+      if (err) return reject(err);
+
+      docker.modem.followProgress(stream, (err) => {
+        if (err) reject(err);
+        else resolve();
+      });
+    });
+  });
+}
+
+await ensureImage("bluenviron/mediamtx:latest");
+
 // Função para criar e iniciar um novo container
-async function createAndStartContainer(containerName, ip, tipo) {
+async function createAndStartContainer(containerName, ip, tipo, fabricante, streamNumber) {
 
     const ports = await getPorts();
     if(ports){
-      const file_yml = createYml(containerName, ip, ports, tipo);
+      const file_yml = createYml(containerName, ip, ports, tipo, fabricante, streamNumber);
       if (file_yml){
           try {
               const container = await docker.createContainer({
@@ -142,7 +168,7 @@ async function createAndStartContainer(containerName, ip, tipo) {
       console.log("Removendo container antigo");
       const deleted = await deleteOlderContainer();
       if(deleted){
-        return await createAndStartContainer(containerName, ip, tipo);
+        return await createAndStartContainer(containerName, ip, tipo, fabricante, streamNumber);
       }
       else{
         console.log("Erro ao deletar container antigo");
@@ -151,14 +177,14 @@ async function createAndStartContainer(containerName, ip, tipo) {
 }};
 
 // Função principal que gerencia a criação do container quando solicitado
-export async function handleRequest(containerName, ip, tipo) { //retorna as portas ou undefined em caso de erro
+export async function handleRequest(containerName, ip, tipo, fabricante, streamNumber) { //retorna as portas ou undefined em caso de erro
   console.log("container name:",containerName);
   console.log("ip ", ip);
   // Verificar se o container já está rodando
   const ports = await checkContainerRunning(containerName); // se tiver rodando, retorna as portas, else retorna false
   if (!ports) {
     console.log(`Iniciando container para a câmera ${ip}`);
-    return await createAndStartContainer(containerName, ip, tipo);
+    return await createAndStartContainer(containerName, ip, tipo, fabricante, streamNumber);
   } else {
     console.log(`Container para a câmera ${containerName} já está rodando.`);
     console.log(ports);

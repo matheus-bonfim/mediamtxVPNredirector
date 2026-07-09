@@ -24,8 +24,10 @@ export function createServer(){
         const ip = req.query.ip;
         const ponto = req.query.ponto;
         const tipo = req.query.tipo;
+        const fabricante = req.query.fabricante;
+        const streamNumber = req.query.streamNumber;
 
-        const ports = await handleRequest(ponto, ip, tipo);
+        const ports = await handleRequest(ponto, ip, tipo, fabricante, streamNumber);
         if (ports) {
             const url_rtsp = `rtsp://${IP}:${ports.rtspAddress}/${ponto}`;
             console.log(url_rtsp);

@@ -51,7 +51,7 @@ export async function getPorts() {
 
 
 
-export function createYml(name, ip, ports, tipo){
+export function createYml(name, ip, ports, tipo, fabricante, streamNumber=1){
 
     try{
         fs.copyFileSync(path.join(con_config_path, 'default.yml'), path.join(con_config_path, `${name}.yml`));
@@ -77,7 +77,18 @@ export function createYml(name, ip, ports, tipo){
         //psw = encodeURIComponent("Wnidobrasil#22")
         psw = encodeURIComponent("Wnidobrasil#22");
         //url_source = `rtsp://bosch:${psw}@${ip}:25552`;
-        url_source = `rtsp://admin:${psw}@${ip}:554/Streaming/Channels/102`;
+        if(fabricante === 'Unitronix'){
+            
+            url_source = `rtsp://admin:${psw}@${ip}:554/media/video${streamNumber}`;
+        }
+        else{
+            if(tipo === 'TST'){
+                url_source = `rtsp://admin:${psw}@${ip}:554`;    
+            }
+            else url_source = `rtsp://admin:${psw}@${ip}:554/Streaming/Channels/10${streamNumber}`;
+            
+        }
+        //url_source = `rtsp://admin:${psw}@${ip}:554/Streaming/Channels/102`;
     }
     let url_source_dest = `rtsp://admin:${psw}@${IP_PUBLICO_SERVER}:${ports.rtspAddress}/${name}`
     let runOnReady = `ffmpeg -i ${url_source} -f rtsp ${url_source_dest}`;

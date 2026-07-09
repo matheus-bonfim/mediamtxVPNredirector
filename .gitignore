@@ -1,2 +1,4 @@
 node_modules/
-containers_config/
+containers_config/*
+!containers_config/default.yml
+

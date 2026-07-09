@@ -1,57 +1,137 @@
 {
   "46.1_LPR": {
-    "rtspAddress": 8555,
-    "rtpAddress": 8002,
-    "rtcpAddress": 8003
-  },
-  "43.2_CXT": {
-    "rtspAddress": 8560,
-    "rtpAddress": 8012,
-    "rtcpAddress": 8013
-  },
-  "03_CXT": {
-    "rtspAddress": 8562,
-    "rtpAddress": 8016,
-    "rtcpAddress": 8017
-  },
-  "23.2_CXT": {
-    "rtspAddress": 8561,
-    "rtpAddress": 8014,
-    "rtcpAddress": 8015
-  },
-  "05_CXT": {
-    "rtspAddress": 8555,
-    "rtpAddress": 8002,
-    "rtcpAddress": 8003
-  },
-  "6.2_LPR": {
-    "rtspAddress": 8555,
-    "rtpAddress": 8004,
-    "rtcpAddress": 8005
+    "rtspAddress": 8557,
+    "rtpAddress": 8006,
+    "rtcpAddress": 8007
   },
   "1GA_LPR": {
     "rtspAddress": 8557,
     "rtpAddress": 8006,
     "rtcpAddress": 8007
   },
-  "04_CXT": {
-    "rtspAddress": 8558,
-    "rtpAddress": 8008,
-    "rtcpAddress": 8009
-  },
   "27_CXT": {
-    "rtspAddress": 44545,
-    "rtpAddress": 8018,
-    "rtcpAddress": 8019
+    "rtspAddress": 8557,
+    "rtpAddress": 8006,
+    "rtcpAddress": 8007
   },
   "32.2B_CXT": {
     "rtspAddress": 39717,
     "rtpAddress": 8010,
     "rtcpAddress": 8011
   },
-  "38.2_CXT": {
-    "rtspAddress": 8564,
+  "T1_CXT": {
+    "rtspAddress": 8562,
+    "rtpAddress": 8016,
+    "rtcpAddress": 8017
+  },
+  "38.3_CXT": {
+    "rtspAddress": 8558,
+    "rtpAddress": 8006,
+    "rtcpAddress": 8007
+  },
+  "21_PTZ": {
+    "rtspAddress": 8556,
     "rtpAddress": 8002,
     "rtcpAddress": 8003
+  },
+  "43.1_CXT": {
+    "rtspAddress": 8554,
+    "rtpAddress": 8000,
+    "rtcpAddress": 8001
+  },
+  "39_CXT": {
+    "rtspAddress": 8555,
+    "rtpAddress": 8002,
+    "rtcpAddress": 8003
+  },
+  "14.3_LPR": {
+    "rtspAddress": 8555,
+    "rtpAddress": 8002,
+    "rtcpAddress": 8003
+  },
+  "19_PTZ": {
+    "rtspAddress": 8560,
+    "rtpAddress": 8012,
+    "rtcpAddress": 8013
+  },
+  "14.2_CXT": {
+    "rtspAddress": 8556,
+    "rtpAddress": 8004,
+    "rtcpAddress": 8005
+  },
+  "undefined": {
+    "rtspAddress": 8560,
+    "rtpAddress": 8012,
+    "rtcpAddress": 8013
+  },
+  "28_CXT": {
+    "rtspAddress": 8561,
+    "rtpAddress": 8014,
+    "rtcpAddress": 8015
+  },
+  "37_LPR": {
+    "rtspAddress": 8555,
+    "rtpAddress": 8002,
+    "rtcpAddress": 8003
+  },
+  "34.4B_LPR": {
+    "rtspAddress": 8556,
+    "rtpAddress": 8002,
+    "rtcpAddress": 8003
+  },
+  "16_CXT": {
+    "rtspAddress": 8554,
+    "rtpAddress": 8000,
+    "rtcpAddress": 8001
+  },
+  "14.1_LPR": {
+    "rtspAddress": 8558,
+    "rtpAddress": 8008,
+    "rtcpAddress": 8009
+  },
+  "15_CXT": {
+    "rtspAddress": 8559,
+    "rtpAddress": 8010,
+    "rtcpAddress": 8011
+  },
+  "34.3_CXT": {
+    "rtspAddress": 8561,
+    "rtpAddress": 8014,
+    "rtcpAddress": 8015
+  },
+  "18_CXT": {
+    "rtspAddress": 8557,
+    "rtpAddress": 8006,
+    "rtcpAddress": 8007
+  },
+  "02_CXT": {
+    "rtspAddress": 8557,
+    "rtpAddress": 8006,
+    "rtcpAddress": 8007
+  },
+  "6.2_LPR": {
+    "rtspAddress": 8558,
+    "rtpAddress": 8008,
+    "rtcpAddress": 8009
+  },
+  "04_CXT": {
+    "rtspAddress": 8554,
+    "rtpAddress": 8000,
+    "rtcpAddress": 8001
+  },
+  "05_CXT": {
+    "rtspAddress": 8555,
+    "rtpAddress": 8002,
+    "rtcpAddress": 8003
+  },
+  "8.1_LPR": {
+    "rtspAddress": 8556,
+    "rtpAddress": 8004,
+    "rtcpAddress": 8005
+  },
+  "45.1_LPR": {
+    "rtspAddress": 8561,
+    "rtpAddress": 8014,
+    "rtcpAddress": 8015
   }
 }
